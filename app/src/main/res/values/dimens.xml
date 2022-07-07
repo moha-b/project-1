@@ -2,4 +2,5 @@
 <resources>
 
     <dimen name="wide">16dp</dimen>
+    <dimen name="height">40dp</dimen>
 </resources>
