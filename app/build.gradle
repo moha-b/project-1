@@ -50,4 +50,6 @@ dependencies {
     // Navigation
     implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
     implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
+    // View Model & Live Data
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 }
