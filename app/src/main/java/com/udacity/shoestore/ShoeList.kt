@@ -1,13 +1,13 @@
 package com.udacity.shoestore
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.models.shoeViewModel
 
@@ -27,6 +27,7 @@ class ShoeList : Fragment() {
             view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_shoeList_to_shoeDetail) }
         }
 
+        setHasOptionsMenu(true)
 
         viewModel.name.observe(viewLifecycleOwner, Observer { newName ->
             binding.name.text = newName.toString()
@@ -47,5 +48,13 @@ class ShoeList : Fragment() {
         return binding.root
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu,menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item,view!!.findNavController())||
+        super.onOptionsItemSelected(item)
+    }
 }
