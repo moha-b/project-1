@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/wide"
+    tools:context=".ShoeDetail">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_marginTop="@dimen/wide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/add_shoes"
+        android:layout_marginBottom="@dimen/wide"
+        />
+
+    <EditText
+        android:id="@+id/shoeName"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height"
+        android:paddingHorizontal="@dimen/wide"
+        android:background="@drawable/input_background"
+        android:hint="@string/name"
+        android:inputType="text"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/company"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height"
+        android:paddingHorizontal="@dimen/wide"
+        android:background="@drawable/input_background"
+        android:hint="@string/company"
+        android:inputType="text"
+        android:layout_marginVertical="@dimen/wide"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/size"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height"
+        android:paddingHorizontal="@dimen/wide"
+        android:background="@drawable/input_background"
+        android:hint="@string/size"
+        android:inputType="number"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/Description"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height"
+        android:paddingHorizontal="@dimen/wide"
+        android:background="@drawable/input_background"
+        android:hint="@string/description"
+        android:inputType="textMultiLine"
+        android:importantForAutofill="no"
+        android:layout_marginVertical="@dimen/wide"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="ContentDescription" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/button_style"
+        android:text="@string/save"/>
+
+
+</LinearLayout>
+</layout>
