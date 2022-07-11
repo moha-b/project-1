@@ -19,7 +19,7 @@ class login : Fragment() {
         binding = FragmentLoginBinding.inflate(inflater,container, false)
 
         binding.login.setOnClickListener {
-            view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_login_to_welcome) }
+            view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_login_to_instruction) }
         }
         return binding.root
     }

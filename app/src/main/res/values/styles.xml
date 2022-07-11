@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -18,7 +18,15 @@
 
     <style name="button_style">
         <item name="android:background">@drawable/button_background</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/orange</item>
     </style>
 
+    <style name="titleText">
+        <item name="android:textSize">@dimen/titles</item>
+        <item name="android:textColor">@color/orange</item>
+    </style>
+    <style name="subTitleText">
+        <item name="android:textSize">@dimen/subTitles</item>
+        <item name="android:textColor">@color/orange</item>
+    </style>
 </resources>

@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val navController = this.findNavController(R.id.myNavHostFragment)
-        NavigationUI.setupActionBarWithNavController(this, navController)
+       // NavigationUI.setupActionBarWithNavController(this, navController)
         Timber.plant(Timber.DebugTree())
 
     }

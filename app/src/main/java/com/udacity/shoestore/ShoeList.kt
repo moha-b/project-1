@@ -44,13 +44,13 @@ class ShoeList : Fragment() {
         viewModel.description.observe(viewLifecycleOwner, Observer { newDescription ->
             binding.Description.text = newDescription.toString()
         })
-
         return binding.root
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu,menu)
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

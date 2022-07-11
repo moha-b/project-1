@@ -3,4 +3,6 @@
 
     <dimen name="wide">16dp</dimen>
     <dimen name="height">40dp</dimen>
+    <dimen name="titles">31sp</dimen>
+    <dimen name="subTitles">18sp</dimen>
 </resources>

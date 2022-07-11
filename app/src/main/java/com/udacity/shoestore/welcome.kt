@@ -20,7 +20,7 @@ class welcome : Fragment() {
         binding = FragmentWelcomeBinding.inflate(inflater,container,false)
 
         binding.go.setOnClickListener {
-            view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_welcome_to_instruction) }
+            view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_welcome_to_login) }
         }
         return binding.root
     }
