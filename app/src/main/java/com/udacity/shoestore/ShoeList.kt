@@ -8,8 +8,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.udacity.shoestore.R.layout.shoe_design
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
+import com.udacity.shoestore.databinding.ShoeDesignBinding
 import com.udacity.shoestore.models.shoeViewModel
 import kotlinx.android.synthetic.main.shoe_design.view.*
 
@@ -34,8 +34,27 @@ class ShoeList : Fragment() {
         return binding.root
     }
 
+    private fun addProduct(): View {
 
+        val bind:ShoeDesignBinding = ShoeDesignBinding.inflate(layoutInflater)
+        bind.shoe = viewModel
+        viewModel._name.observe(viewLifecycleOwner, Observer { newName ->
+            bind.productName.text = newName.toString()
+        })
 
+        viewModel._company.observe(viewLifecycleOwner, Observer { newCompany ->
+            bind.productCompany.text = newCompany.toString()
+        })
+
+        viewModel._size.observe(viewLifecycleOwner, Observer { newSize ->
+            bind.productSize.text = newSize.toString()
+        })
+
+        viewModel._description.observe(viewLifecycleOwner, Observer { newDescription ->
+            bind.productDescription.text = newDescription.toString()
+        })
+        return bind.root
+    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)

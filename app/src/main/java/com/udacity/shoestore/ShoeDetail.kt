@@ -1,12 +1,10 @@
 package com.udacity.shoestore
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
@@ -37,30 +35,11 @@ class ShoeDetail : Fragment() {
     }
 
     private fun addData(){
-        viewModel.name.value = binding.shoeName.text.toString()
-        viewModel.description.value  = binding.shoeDescription.text.toString()
-        viewModel.company.value = binding.shoeCompany.text.toString()
-        viewModel.size.value = binding.shoeSize.text.toString()
+        viewModel._name.value = binding.shoeName.text.toString()
+        viewModel._description.value  = binding.shoeDescription.text.toString()
+        viewModel._company.value = binding.shoeCompany.text.toString()
+        viewModel._size.value = binding.shoeSize.text.toString()
     }
-    
-    private fun addProduct(): View {
-        val view: View = LayoutInflater.from(context).inflate(R.layout.shoe_design,null,false)
 
-        viewModel.name.observe(viewLifecycleOwner, Observer { newName ->
-            view.product_name.text = newName.toString()
-        })
 
-        viewModel.company.observe(viewLifecycleOwner, Observer { newCompany ->
-            view.product_company.text = newCompany.toString()
-        })
-
-        viewModel.size.observe(viewLifecycleOwner, Observer { newSize ->
-            view.product_description.text = newSize.toString()
-        })
-
-        viewModel.description.observe(viewLifecycleOwner, Observer { newDescription ->
-            view.product_size.text = newDescription.toString()
-        })
-        return view
-    }
 }
