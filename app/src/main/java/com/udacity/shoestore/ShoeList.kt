@@ -30,30 +30,11 @@ class ShoeList : Fragment() {
         }
         setHasOptionsMenu(true)
         viewModel = ViewModelProvider(requireActivity()).get(shoeViewModel::class.java)
-        
+
         return binding.root
     }
 
-    private fun addProduct(): View {
-        val view: View = LayoutInflater.from(context).inflate(R.layout.shoe_design,null,false)
 
-        viewModel.name.observe(viewLifecycleOwner, Observer { newName ->
-            view.product_name.text = newName.toString()
-        })
-
-        viewModel.company.observe(viewLifecycleOwner, Observer { newCompany ->
-            view.product_company.text = newCompany.toString()
-        })
-
-        viewModel.size.observe(viewLifecycleOwner, Observer { newSize ->
-            view.product_description.text = newSize.toString()
-        })
-
-        viewModel.description.observe(viewLifecycleOwner, Observer { newDescription ->
-            view.product_size.text = newDescription.toString()
-        })
-        return view
-    }
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
