@@ -21,13 +21,14 @@ class ShoeList : Fragment() {
         savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         binding = FragmentShoeListBinding.inflate(inflater,container,false)
-        viewModel = ViewModelProvider(this).get(shoeViewModel::class.java)
 
         binding.fab.setOnClickListener {
             view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_shoeList_to_shoeDetail) }
         }
 
         setHasOptionsMenu(true)
+
+        viewModel = ViewModelProvider(requireActivity()).get(shoeViewModel::class.java)
 
         viewModel.name.observe(viewLifecycleOwner, Observer { newName ->
             binding.name.text = newName.toString()
