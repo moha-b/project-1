@@ -29,7 +29,7 @@
         android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/company"
+        android:id="@+id/shoeCompany"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height"
         android:paddingHorizontal="@dimen/wide"
@@ -40,7 +40,7 @@
         android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/size"
+        android:id="@+id/shoeSize"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height"
         android:paddingHorizontal="@dimen/wide"
@@ -50,7 +50,7 @@
         android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/Description"
+        android:id="@+id/shoeDescription"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height"
         android:paddingHorizontal="@dimen/wide"

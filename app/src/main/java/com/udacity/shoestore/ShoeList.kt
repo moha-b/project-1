@@ -8,8 +8,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.udacity.shoestore.R.layout.shoe_design
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.models.shoeViewModel
+import kotlinx.android.synthetic.main.shoe_design.view.*
 
 class ShoeList : Fragment() {
 
@@ -24,29 +26,35 @@ class ShoeList : Fragment() {
 
         binding.fab.setOnClickListener {
             view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_shoeList_to_shoeDetail) }
+
         }
-
         setHasOptionsMenu(true)
-
         viewModel = ViewModelProvider(requireActivity()).get(shoeViewModel::class.java)
+        
+        return binding.root
+    }
+
+    private fun addProduct(): View {
+        val view: View = LayoutInflater.from(context).inflate(R.layout.shoe_design,null,false)
 
         viewModel.name.observe(viewLifecycleOwner, Observer { newName ->
-            binding.name.text = newName.toString()
+            view.product_name.text = newName.toString()
         })
 
         viewModel.company.observe(viewLifecycleOwner, Observer { newCompany ->
-            binding.company.text = newCompany.toString()
+            view.product_company.text = newCompany.toString()
         })
 
         viewModel.size.observe(viewLifecycleOwner, Observer { newSize ->
-            binding.size.text = newSize.toString()
+            view.product_description.text = newSize.toString()
         })
 
         viewModel.description.observe(viewLifecycleOwner, Observer { newDescription ->
-            binding.Description.text = newDescription.toString()
+            view.product_size.text = newDescription.toString()
         })
-        return binding.root
+        return view
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
@@ -59,3 +67,4 @@ class ShoeList : Fragment() {
         super.onOptionsItemSelected(item)
     }
 }
+

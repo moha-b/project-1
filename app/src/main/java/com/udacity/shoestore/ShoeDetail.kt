@@ -1,18 +1,18 @@
 package com.udacity.shoestore
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Size
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
-import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.models.shoeViewModel
+import kotlinx.android.synthetic.main.fragment_shoe_list.*
+import kotlinx.android.synthetic.main.shoe_design.view.*
 
 
 class ShoeDetail : Fragment() {
@@ -26,33 +26,21 @@ class ShoeDetail : Fragment() {
         binding = FragmentShoeDetailBinding.inflate(inflater,container,false)
         viewModel = ViewModelProvider(requireActivity()).get(shoeViewModel::class.java)
 
-        addShoe()
-        addCompany()
-        addSize()
-        addDescription()
-
 
         binding.save.setOnClickListener {
+            addData()
+            //show_product.addView(addProduct())
             view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_shoeDetail_to_shoeList) }
         }
 
         return binding.root
     }
 
-    private fun addShoe(){
-        val shoeName = binding.shoeName.text
-            viewModel.name.value = shoeName.toString()
+    private fun addData(){
+        viewModel.name.value = binding.shoeName.text.toString()
+        viewModel.description.value  = binding.shoeDescription.text.toString()
+        viewModel.company.value = binding.shoeCompany.text.toString()
+        viewModel.size.value = binding.shoeSize.text.toString()
     }
-    private fun addCompany(){
-        val shoeCompany = binding.company.text
-        viewModel.company.value = shoeCompany.toString()
-    }
-    private fun addSize(){
-        val shoeSize = binding.size.text
-        viewModel.size.value = shoeSize.toString()
-    }
-    private fun addDescription(){
-        val shoeDescription = binding.Description.text
-        viewModel.description.value = shoeDescription.toString()
-    }
+
 }
