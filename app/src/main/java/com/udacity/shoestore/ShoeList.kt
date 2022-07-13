@@ -2,6 +2,7 @@ package com.udacity.shoestore
 
 import android.os.Bundle
 import android.view.*
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -39,13 +40,17 @@ class ShoeList : Fragment() {
 
     private fun addProduct(): View {
 
-        val bind:ShoeDesignBinding = ShoeDesignBinding.inflate(layoutInflater)
-        viewModel.shoe.observe(viewLifecycleOwner, Observer { newShoe ->
-            bind.productName.text = newShoe.component1().name
-            bind.productCompany.text = newShoe.component2().company
-            bind.productDescription.text = newShoe.component3().description
-            bind.productSize.text = newShoe.component4().size
-        })
+        val bind:ShoeDesignBinding = DataBindingUtil.setContentView(requireActivity(),R.layout.shoe_design)
+        bind.apply {
+            //bind.shoe = viewModel // error couldn't make a guess for com.udacity.shoestore.models.shoeViewModel
+            viewModel.shoe.observe(viewLifecycleOwner, Observer {
+                bind.productName.text = shoeName.text.toString()
+                bind.productCompany.text = shoeCompany.text.toString()
+                bind.productDescription.text = shoeDescription.text.toString()
+                bind.productSize.text = shoeSize.text.toString()
+            })
+            invalidateAll()
+        }
 //        viewModel._name.observe(viewLifecycleOwner, Observer { newName ->
 //            bind.productName.text = newName.toString()
 //        })
