@@ -35,10 +35,12 @@ class ShoeDetail : Fragment() {
     }
 
     private fun addData(){
-        viewModel._name.value = binding.shoeName.text.toString()
-        viewModel._description.value  = binding.shoeDescription.text.toString()
-        viewModel._company.value = binding.shoeCompany.text.toString()
-        viewModel._size.value = binding.shoeSize.text.toString()
+        viewModel._name = binding.shoeName.text.toString()
+        viewModel._description  = binding.shoeDescription.text.toString()
+        viewModel._company = binding.shoeCompany.text.toString()
+        viewModel._size = binding.shoeSize.text.toString()
+
+        viewModel.addNewShoe(viewModel._name,viewModel._size,viewModel._company,viewModel._description)
     }
 
 

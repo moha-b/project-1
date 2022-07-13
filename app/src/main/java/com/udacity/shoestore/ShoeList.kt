@@ -10,7 +10,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.databinding.ShoeDesignBinding
+import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.models.shoeViewModel
+import kotlinx.android.synthetic.main.fragment_shoe_detail.*
 import kotlinx.android.synthetic.main.shoe_design.view.*
 
 class ShoeList : Fragment() {
@@ -30,6 +32,7 @@ class ShoeList : Fragment() {
         }
         setHasOptionsMenu(true)
         viewModel = ViewModelProvider(requireActivity()).get(shoeViewModel::class.java)
+        binding.showProduct.addView(addProduct())
 
         return binding.root
     }
@@ -37,22 +40,27 @@ class ShoeList : Fragment() {
     private fun addProduct(): View {
 
         val bind:ShoeDesignBinding = ShoeDesignBinding.inflate(layoutInflater)
-        bind.shoe = viewModel
-        viewModel._name.observe(viewLifecycleOwner, Observer { newName ->
-            bind.productName.text = newName.toString()
+        viewModel.shoe.observe(viewLifecycleOwner, Observer { newShoe ->
+            bind.productName.text = newShoe.component1().name
+            bind.productCompany.text = newShoe.component2().company
+            bind.productDescription.text = newShoe.component3().description
+            bind.productSize.text = newShoe.component4().size
         })
-
-        viewModel._company.observe(viewLifecycleOwner, Observer { newCompany ->
-            bind.productCompany.text = newCompany.toString()
-        })
-
-        viewModel._size.observe(viewLifecycleOwner, Observer { newSize ->
-            bind.productSize.text = newSize.toString()
-        })
-
-        viewModel._description.observe(viewLifecycleOwner, Observer { newDescription ->
-            bind.productDescription.text = newDescription.toString()
-        })
+//        viewModel._name.observe(viewLifecycleOwner, Observer { newName ->
+//            bind.productName.text = newName.toString()
+//        })
+//
+//        viewModel._company.observe(viewLifecycleOwner, Observer { newCompany ->
+//            bind.productCompany.text = newCompany.toString()
+//        })
+//
+//        viewModel._size.observe(viewLifecycleOwner, Observer { newSize ->
+//            bind.productSize.text = newSize.toString()
+//        })
+//
+//        viewModel._description.observe(viewLifecycleOwner, Observer { newDescription ->
+//            bind.productDescription.text = newDescription.toString()
+//        })
         return bind.root
     }
 
