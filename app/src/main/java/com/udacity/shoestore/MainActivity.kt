@@ -18,16 +18,19 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         navController = findNavController(R.id.myNavHostFragment)
-//        setupActionBarWithNavController(this, navController)
+        setSupportActionBar(binding.toolbar)
+        setupActionBarWithNavController(this, navController)
+        supportFragmentManager.findFragmentById(R.id.myNavHostFragment)
+
         Timber.plant(Timber.DebugTree())
-
     }
-
     override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
+        val navController = this.findNavController(R.id.myNavHostFragment)
+        return navController.navigateUp()
     }
+
 }

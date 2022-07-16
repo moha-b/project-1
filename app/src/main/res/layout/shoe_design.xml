@@ -6,7 +6,7 @@
     <data>
         <variable
             name="Shoe"
-            type="com.udacity.shoestore.models.shoeViewModel" />
+            type="com.udacity.shoestore.models.Shoe" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

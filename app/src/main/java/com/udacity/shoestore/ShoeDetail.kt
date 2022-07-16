@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
+import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.models.shoeViewModel
 import kotlinx.android.synthetic.main.fragment_shoe_list.*
 import kotlinx.android.synthetic.main.shoe_design.view.*
@@ -21,7 +23,7 @@ class ShoeDetail : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
-        binding = FragmentShoeDetailBinding.inflate(inflater,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
         viewModel = ViewModelProvider(requireActivity()).get(shoeViewModel::class.java)
 
 
@@ -35,12 +37,12 @@ class ShoeDetail : Fragment() {
     }
 
     private fun addData(){
-        viewModel._name = binding.shoeName.text.toString()
-        viewModel._description  = binding.shoeDescription.text.toString()
-        viewModel._company = binding.shoeCompany.text.toString()
-        viewModel._size = binding.shoeSize.text.toString()
+        val _name = binding.shoeName.text.toString()
+        val _description  = binding.shoeDescription.text.toString()
+        val _company = binding.shoeCompany.text.toString()
+        val _size = binding.shoeSize.text.toString()
 
-        viewModel.addNewShoe(viewModel._name,viewModel._size,viewModel._company,viewModel._description)
+        viewModel.addShoe(Shoe(_name,_size,_company,_description))
     }
 
 

@@ -1,23 +1,20 @@
 package com.udacity.shoestore.models
 
-import android.util.EventLogTags
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class shoeViewModel: ViewModel() {
 
-    var _name = ""
-    var _company = ""
-    var _size = ""
-    var _description = ""
+    private val shoe = mutableListOf(
+        Shoe("g1","21","adidas","don't show up don't came now")
+    )
 
-    private var _shoe:MutableLiveData<List<Shoe>> = MutableLiveData(listOf())
+    private var _shoelist:MutableLiveData<List<Shoe>> = MutableLiveData(listOf())
+    var shoelist:LiveData<List<Shoe>> = _shoelist
 
-    fun addNewShoe(name: String, size: String, company: String, description: String) {
-        val item = Shoe(name, size, company, description)
-        _shoe.value = _shoe.value?.plus(item) ?: listOf(item)
+    fun addShoe(it:Shoe) {
+       shoe.add(it)
+        _shoelist.value = shoe
     }
-    var shoe:LiveData<List<Shoe>> = _shoe
-
 }

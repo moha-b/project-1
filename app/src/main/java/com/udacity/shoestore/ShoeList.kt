@@ -25,7 +25,7 @@ class ShoeList : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
-        binding = FragmentShoeListBinding.inflate(inflater,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_list, container, false)
 
         binding.fab.setOnClickListener {
             view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_shoeList_to_shoeDetail) }
@@ -33,7 +33,7 @@ class ShoeList : Fragment() {
         }
         setHasOptionsMenu(true)
         viewModel = ViewModelProvider(requireActivity()).get(shoeViewModel::class.java)
-        binding.showProduct.addView(addProduct())
+        //binding.showProduct.addView(addProduct())
 
         return binding.root
     }
@@ -43,31 +43,16 @@ class ShoeList : Fragment() {
         val bind:ShoeDesignBinding = DataBindingUtil.setContentView(requireActivity(),R.layout.shoe_design)
         bind.apply {
             //bind.shoe = viewModel // error couldn't make a guess for com.udacity.shoestore.models.shoeViewModel
-            viewModel.shoe.observe(viewLifecycleOwner, Observer {
-                bind.productName.text = shoeName.text.toString()
-                bind.productCompany.text = shoeCompany.text.toString()
-                bind.productDescription.text = shoeDescription.text.toString()
-                bind.productSize.text = shoeSize.text.toString()
-            })
+            viewModel.shoelist.observe(viewLifecycleOwner, Observer {
+                bind.productName.text = shoe.name
+                bind.productSize.text = shoe.size
+                bind.productCompany.text = shoe.company
+                bind.productDescription.text = shoe.description
+        })
             invalidateAll()
         }
-//        viewModel._name.observe(viewLifecycleOwner, Observer { newName ->
-//            bind.productName.text = newName.toString()
-//        })
-//
-//        viewModel._company.observe(viewLifecycleOwner, Observer { newCompany ->
-//            bind.productCompany.text = newCompany.toString()
-//        })
-//
-//        viewModel._size.observe(viewLifecycleOwner, Observer { newSize ->
-//            bind.productSize.text = newSize.toString()
-//        })
-//
-//        viewModel._description.observe(viewLifecycleOwner, Observer { newDescription ->
-//            bind.productDescription.text = newDescription.toString()
-//        })
         return bind.root
-    }
+   }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
