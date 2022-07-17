@@ -42,7 +42,7 @@ class ShoeDetail : Fragment() {
         val _company = binding.shoeCompany.text.toString()
         val _size = binding.shoeSize.text.toString()
 
-        viewModel.addShoe(Shoe(_name,_size,_company,_description))
+        ///viewModel.addShoe()
     }
 
 

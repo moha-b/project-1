@@ -10,11 +10,12 @@ class shoeViewModel: ViewModel() {
         Shoe("g1","21","adidas","don't show up don't came now")
     )
 
-    private var _shoelist:MutableLiveData<List<Shoe>> = MutableLiveData(listOf())
+    private var _shoelist:MutableLiveData<List<Shoe>> = MutableLiveData()
     var shoelist:LiveData<List<Shoe>> = _shoelist
 
     fun addShoe(it:Shoe) {
        shoe.add(it)
         _shoelist.value = shoe
     }
+
 }

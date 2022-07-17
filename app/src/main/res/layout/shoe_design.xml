@@ -14,8 +14,21 @@
         android:background="@drawable/product_background">
 
         <ImageView
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/circle"
+            app:layout_constraintBottom_toBottomOf="@id/product_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/product_image"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
             android:id="@+id/product_image"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="200dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -25,6 +38,7 @@
 
         <TextView
             android:id="@+id/product_name"
+            android:text="@={Shoe.name}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,6 +47,7 @@
 
         <TextView
             android:id="@+id/product_company"
+            android:text="@={Shoe.company}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,6 +56,7 @@
 
         <TextView
             android:id="@+id/product_description"
+            android:text="@={Shoe.description}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +65,7 @@
 
         <TextView
             android:id="@+id/product_size"
+            android:text="@={Shoe.size}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"

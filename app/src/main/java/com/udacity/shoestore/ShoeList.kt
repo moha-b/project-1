@@ -33,24 +33,24 @@ class ShoeList : Fragment() {
         }
         setHasOptionsMenu(true)
         viewModel = ViewModelProvider(requireActivity()).get(shoeViewModel::class.java)
-        //binding.showProduct.addView(addProduct())
+        binding.showProduct.addView(addProduct())
 
         return binding.root
     }
 
     private fun addProduct(): View {
 
-        val bind:ShoeDesignBinding = DataBindingUtil.setContentView(requireActivity(),R.layout.shoe_design)
-        bind.apply {
+        val bind:ShoeDesignBinding = ShoeDesignBinding.inflate(LayoutInflater.from(requireContext()))
             //bind.shoe = viewModel // error couldn't make a guess for com.udacity.shoestore.models.shoeViewModel
+        bind.apply {
             viewModel.shoelist.observe(viewLifecycleOwner, Observer {
-                bind.productName.text = shoe.name
-                bind.productSize.text = shoe.size
-                bind.productCompany.text = shoe.company
-                bind.productDescription.text = shoe.description
-        })
-            invalidateAll()
+                bind.productName.text = shoe?.name
+                bind.productSize.text = shoe?.size
+                bind.productCompany.text = shoe?.company
+                bind.productDescription.text = shoe?.description
+            })
         }
+
         return bind.root
    }
 
@@ -61,8 +61,8 @@ class ShoeList : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item,view!!.findNavController())||
-        super.onOptionsItemSelected(item)
+        requireView().findNavController().navigate(ShoeListDirections.actionShoeListPopIncludingLogin())
+        return true
     }
 }
 
