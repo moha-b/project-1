@@ -25,19 +25,21 @@ class ShoeDetail : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
         viewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
-        binding.shoe = Shoe("","","","")
+        binding.shoe = Shoe("", "", "", "")
         binding.viewModel = viewModel
-//        binding.save.setOnClickListener {
-//            //addData()
-//            //view!!.findNavController()!!.popBackStack()
-//
-//        }
+        binding.save.setOnClickListener {
+            //addData()
+            //view!!.findNavController()!!.popBackStack()
+            view?.let { it1 ->
+                Navigation.findNavController(it1).navigate(R.id.action_shoeDetail_pop_including_shoeList)
+            }
+        }
         binding.fab.setOnClickListener {
             view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_shoeDetail_pop_including_shoeList) }
         }
-
         return binding.root
     }
+
 
 //    private fun addData(){
 //        val _name = binding.shoeName.text.toString()

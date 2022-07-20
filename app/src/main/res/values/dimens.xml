@@ -5,4 +5,5 @@
     <dimen name="height">40dp</dimen>
     <dimen name="titles">31sp</dimen>
     <dimen name="subTitles">18sp</dimen>
+    <dimen name="productNameSize">16sp</dimen>
 </resources>

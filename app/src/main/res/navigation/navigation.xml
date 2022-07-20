@@ -62,10 +62,10 @@
 
         <action
             android:id="@+id/action_shoeDetail_pop_including_shoeList"
-            app:popUpTo="@id/shoeList"
             app:destination="@id/shoeList"
             app:popEnterAnim="@anim/fragment_open_enter"
             app:popExitAnim="@anim/fragment_open_exit"
-            app:popUpToInclusive="true" />
+            app:popUpTo="@id/shoeList"
+            app:popUpToInclusive="false" />
     </fragment>
 </navigation>

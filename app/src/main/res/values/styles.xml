@@ -29,4 +29,9 @@
         <item name="android:textSize">@dimen/subTitles</item>
         <item name="android:textColor">@color/orange</item>
     </style>
+
+    <style name="product">
+        <item name="android:textSize">@dimen/productNameSize</item>
+        <item name="android:textColor">@color/orange</item>
+    </style>
 </resources>
