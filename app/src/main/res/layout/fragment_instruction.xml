@@ -2,6 +2,7 @@
 <layout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- Use constrain layout to make me can put the items where ever i want-->
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,7 +10,7 @@
     android:padding="@dimen/wide">
 
     <!-- TODO: Update blank fragment layout -->
-
+    <!-- to make a block of views in vertical way-->
     <LinearLayout
         android:id="@+id/content"
         android:layout_width="match_parent"

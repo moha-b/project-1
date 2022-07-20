@@ -10,7 +10,8 @@
             name="shoe"
             type="com.udacity.shoestore.models.Shoe" />
     </data>
-<LinearLayout android:layout_width="match_parent"
+    <!-- to make a block of views in vertical way-->
+    <LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/wide"
@@ -73,6 +74,11 @@
         android:importantForAutofill="no"
         android:layout_marginVertical="@dimen/wide"/>
 
+        <!-- to make a line of two buttons horizontally-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
     <Button
         android:id="@+id/save"
         style="@style/button_style"
@@ -81,8 +87,18 @@
         android:onClick="@{() -> viewModel.addShoe(shoe)}"
         android:text="@string/save" />
 
+            <Button
+                android:id="@+id/back"
+                style="@style/button_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginStart="200dp"
+                android:text="@string/back" />
+        </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/add_shoes"

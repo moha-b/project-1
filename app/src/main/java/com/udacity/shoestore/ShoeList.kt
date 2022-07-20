@@ -43,6 +43,7 @@ class ShoeList : Fragment() {
             viewModel.shoelist.value?.forEach {
                 val bind:ShoeDesignBinding = ShoeDesignBinding.inflate(layoutInflater)
                 bind.shoe = it
+                //bind.root.marginTop.and(10)
                 binding.showProduct.addView(bind.root)
             }
         })

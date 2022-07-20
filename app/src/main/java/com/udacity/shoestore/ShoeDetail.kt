@@ -37,6 +37,9 @@ class ShoeDetail : Fragment() {
         binding.fab.setOnClickListener {
             view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_shoeDetail_pop_including_shoeList) }
         }
+        binding.back.setOnClickListener {
+            view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_shoeDetail_pop_including_shoeList) }
+        }
         return binding.root
     }
 

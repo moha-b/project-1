@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 >
+    <!-- Use constrain layout to make me can put the items where ever i want-->
+    <!-- for example put the floatActionButton down and to the right-->
 <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="50dp"
     tools:context=".ShoeList">
 
-    <!-- TODO: Update blank fragment layout -->
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
@@ -20,6 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         android:orientation="vertical">
+<!--    to represent the item in vertical way    -->
         <LinearLayout
             android:id="@+id/show_product"
             android:orientation="vertical"

@@ -8,7 +8,9 @@
             name="shoe"
             type="com.udacity.shoestore.models.Shoe" />
     </data>
+    <!-- Use constrain layout to make me can put the items where ever i want-->
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="@dimen/wide"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/product_background">
