@@ -8,18 +8,15 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.databinding.ShoeDesignBinding
 import com.udacity.shoestore.models.Shoe
-import com.udacity.shoestore.models.shoeViewModel
-import kotlinx.android.synthetic.main.fragment_shoe_detail.*
-import kotlinx.android.synthetic.main.shoe_design.view.*
+import com.udacity.shoestore.models.ShoeViewModel
 
 class ShoeList : Fragment() {
 
     private lateinit var binding: FragmentShoeListBinding
-    private lateinit var viewModel: shoeViewModel
+    private lateinit var viewModel: ShoeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +29,7 @@ class ShoeList : Fragment() {
 
         }
         setHasOptionsMenu(true)
-        viewModel = ViewModelProvider(requireActivity()).get(shoeViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
         binding.showProduct.addView(addProduct())
 
         return binding.root
@@ -42,15 +39,16 @@ class ShoeList : Fragment() {
 
         val bind:ShoeDesignBinding = ShoeDesignBinding.inflate(LayoutInflater.from(requireContext()))
             //bind.shoe = viewModel // error couldn't make a guess for com.udacity.shoestore.models.shoeViewModel
-        bind.apply {
-            viewModel.shoelist.observe(viewLifecycleOwner, Observer {
-                bind.productName.text = shoe?.name
-                bind.productSize.text = shoe?.size
-                bind.productCompany.text = shoe?.company
-                bind.productDescription.text = shoe?.description
-            })
-        }
+            //bind.shoe = Shoe("","","","")
+//            viewModel.shoelist.observe(requireActivity(), Observer {
+//                bind.productName.text = Shoe?.name
+//                bind.productSize.text = Shoe?.size
+//                bind.productCompany.text = Shoe?.company
+//                bind.productDescription.text = Shoe?.description
+//            })
+        viewModel.shoelist.observe(viewLifecycleOwner, Observer {
 
+        })
         return bind.root
    }
 

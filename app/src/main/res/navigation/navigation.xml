@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_login_to_instruction"
-            app:destination="@id/instruction" />
+            app:destination="@id/instruction"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit" />
     </fragment>
     <fragment
         android:id="@+id/welcome"
@@ -30,17 +32,23 @@
         tools:layout="@layout/fragment_instruction" >
         <action
             android:id="@+id/action_instruction_to_shoeList"
-            app:destination="@id/shoeList" />
+            app:destination="@id/shoeList"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit" />
     </fragment>
     <fragment
         android:id="@+id/shoeList"
         android:name="com.udacity.shoestore.ShoeList"
-        android:label="shoe_list"
+        android:label="Products"
         tools:layout="@layout/fragment_shoe_list" >
         <action
             android:id="@+id/action_shoeList_to_shoeDetail"
-            app:destination="@id/shoeDetail" />
+            app:destination="@id/shoeDetail"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit" />
         <action
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit"
             android:id="@+id/action_shoeList_pop_including_login"
             app:popUpTo="@id/login"
             app:popUpToInclusive="true"
@@ -49,14 +57,15 @@
     <fragment
         android:id="@+id/shoeDetail"
         android:name="com.udacity.shoestore.ShoeDetail"
-        android:label="fragment_shoe_detail"
+        android:label="Product Detail"
         tools:layout="@layout/fragment_shoe_detail" >
-        <action
-            android:id="@+id/action_shoeDetail_to_shoeList"
-            app:destination="@id/shoeList" />
+
         <action
             android:id="@+id/action_shoeDetail_pop_including_shoeList"
             app:popUpTo="@id/shoeList"
-            app:destination="@id/shoeList" />
+            app:destination="@id/shoeList"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

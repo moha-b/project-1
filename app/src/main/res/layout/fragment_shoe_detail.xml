@@ -2,6 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     >
+    <data>
+        <variable
+            name="viewModel"
+            type="com.udacity.shoestore.models.ShoeViewModel" />
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,12 +18,13 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_marginTop="@dimen/wide"
+        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/add_shoes"
         android:layout_marginBottom="@dimen/wide"
+        style="@style/titleText"
         />
 
     <EditText
@@ -25,6 +34,7 @@
         android:paddingHorizontal="@dimen/wide"
         android:background="@drawable/input_background"
         android:hint="@string/name"
+        android:text="@={shoe.name}"
         android:inputType="text"
         android:importantForAutofill="no" />
 
@@ -35,6 +45,7 @@
         android:paddingHorizontal="@dimen/wide"
         android:background="@drawable/input_background"
         android:hint="@string/company"
+        android:text="@={shoe.company}"
         android:inputType="text"
         android:layout_marginVertical="@dimen/wide"
         android:importantForAutofill="no" />
@@ -46,6 +57,7 @@
         android:paddingHorizontal="@dimen/wide"
         android:background="@drawable/input_background"
         android:hint="@string/size"
+        android:text="@={shoe.size}"
         android:inputType="number"
         android:importantForAutofill="no" />
 
@@ -56,21 +68,30 @@
         android:paddingHorizontal="@dimen/wide"
         android:background="@drawable/input_background"
         android:hint="@string/description"
+        android:text="@={shoe.description}"
         android:inputType="textMultiLine"
         android:importantForAutofill="no"
         android:layout_marginVertical="@dimen/wide"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:ignore="ContentDescription" />
-
     <Button
         android:id="@+id/save"
+        style="@style/button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/button_style"
-        android:text="@string/save"/>
+        android:onClick="@{() -> viewModel.addShoe(shoe)}"
+        android:text="@string/save" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/add_shoes"
+        android:layout_marginBottom="@dimen/wide"
+        android:layout_marginEnd="@dimen/wide"
+        android:src="@drawable/ic_back"
+        android:layout_gravity="end"
+        android:backgroundTint="@color/orange"
+         />
 
 
 </LinearLayout>
